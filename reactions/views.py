@@ -13,5 +13,24 @@ def home(request):
     return render(
         request,
         "reactions/index.html",
-        # "reactions/base.html"
+    )
+
+
+def reaction(request):
+    """
+    Displays the home page
+    """
+    return render(
+        request,
+        "reactions/reaction.html",
+    )
+
+
+def leaderboard(request):
+    """
+    Displays the home page
+    """
+    return render(
+        request,
+        "reactions/leaderboard.html",
     )
