@@ -1,0 +1,8 @@
+#gameArea {
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  background-color: white; /* Ensure it has a background color */
+  cursor: pointer;
+  text-align: center;
+}

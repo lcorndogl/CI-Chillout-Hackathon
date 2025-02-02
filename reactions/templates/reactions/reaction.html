@@ -5,7 +5,7 @@
 {% block content %}
 
 <div class="container mt-5">
-    <h1>reactions.htmlr</h1>
+    <h1>Reaction Test</h1>
 
     <!-- Creating New Score -->
     <div class="col-md-4 card mb-4 mt-3">
@@ -24,5 +24,19 @@
         </div>
     </div>
 
+    <!-- Game Area -->
+    <div id="gameArea" class="col-md-4 card mb-4 mt-3">
+        <div class="card-body">
+            <p id="gameMessage">Click anywhere in this area to start the game.</p>
+        </div>
+    </div>
+
+    <!-- Start Game -->
+
+
+    <script src="{% static 'js/reaction.js' %}"></script>
+    {% endblock %}
+
+    {% block extra_js %}
+    {% endblock %}
 </div>
-{% endblock %}
