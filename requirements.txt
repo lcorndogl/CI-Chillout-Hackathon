@@ -7,11 +7,15 @@ certifi==2024.8.30
 cffi==1.17.1
 charset-normalizer==3.4.0
 colorama==0.4.6
+crispy-bootstrap5==0.7
 cryptography==44.0.0
 defusedxml==0.7.1
+distlib==0.3.9
 dj-database-url==0.5.0
 Django==4.2.18
 django-allauth==0.57.2
+django-crispy-forms==2.3
+filelock==3.16.1
 frozenlist==1.5.0
 gunicorn==20.1.0
 idna==3.10
@@ -19,6 +23,7 @@ multidict==6.1.0
 netcat==0.0.1a0
 oauthlib==3.2.2
 openai==0.28.0
+platformdirs==4.3.6
 propcache==0.2.1
 psycopg2==2.9.10
 pycparser==2.22
@@ -28,7 +33,10 @@ requests==2.32.3
 requests-oauthlib==2.0.0
 setuptools==75.8.0
 sqlparse==0.5.2
+sudo==1.0.0
 tqdm==4.67.1
+typing_extensions==4.12.2
 tzdata==2024.2
 urllib3==2.2.3
+virtualenv==20.28.0
 yarl==1.18.3

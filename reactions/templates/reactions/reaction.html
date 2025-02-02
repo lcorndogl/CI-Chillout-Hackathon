@@ -1,9 +1,28 @@
 {% extends "base.html" %}
 {% load static %}
+{% load crispy_forms_tags %}
+
 {% block content %}
 
 <div class="container mt-5">
     <h1>reactions.htmlr</h1>
+
+    <!-- Creating New Score -->
+    <div class="col-md-4 card mb-4 mt-3">
+        <div class="card-body">
+            {% if user.is_authenticated %}
+            <h3>New Score</h3>
+            <p>Submitting as: {{ user.username }}</p>
+            <form id="scoresForm" method="post" style="margin-top: 1.3em;">
+                {{ scores_form | crispy }}
+                {% csrf_token %}
+                <button id="submitButton" type="submit" class="btn btn-signup btn-lg">Submit</button>
+            </form>
+            {% else %}
+            <p>Log in to submit a score</p>
+            {% endif %}
+        </div>
+    </div>
 
 </div>
 {% endblock %}
