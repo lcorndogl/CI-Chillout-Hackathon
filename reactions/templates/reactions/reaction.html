@@ -4,16 +4,12 @@
 
 {% block content %}
 
-<div class="container mt-5">
+<div class="container mt-5 text-center justify-content-center">
     <h1>Reaction Test</h1>
     <!-- Game Area -->
-    <div id="gameArea" class="col-md-4 card mb-4 mt-3">
-        <div class="card-body">
-            <p id="gameMessage">Click anywhere in this area to start the game.</p>
-        </div>
+    <div id="gameArea" class="game-area">
+        <p id="gameMessage">Click anywhere in this area to start the game.</p>
     </div>
-
-
 
     <script src="{% static 'js/reaction.js' %}"></script>
     {% endblock %}
@@ -21,3 +17,4 @@
     {% block extra_js %}
     {% endblock %}
 </div>
+
