@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect
 # from django.views import generic
 from django.contrib import messages
 # from django.http import HttpResponseRedirect
-from .forms import ScoresForm
+from .forms import ScoresForm, ScoreForm
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.decorators import login_required
@@ -52,7 +52,7 @@ def leaderboard(request):
     """
     Displays the leaderboard page
     """
-    top_scores = Score.objects.order_by('score')[:25]
+    top_scores = Score.objects.filter(hidden=False).order_by('score')[:25]
     context = {
         'top_scores': top_scores
     }
@@ -78,15 +78,22 @@ def profile(request):
     """
     Displays the profile page with the user's scores
     """
-    user_scores = Score.objects.filter(user=request.user).order_by('created_on')
+    user_scores = Score.objects.filter(user=request.user).order_by('score')
+    if request.method == 'POST':
+        form = ScoreForm(request.POST)
+        if form.is_valid():
+            score_id = request.POST.get('score_id')
+            score = Score.objects.get(id=score_id, user=request.user)
+            score.hidden = form.cleaned_data['hidden']
+            score.save()
+            return redirect('profile')
+    else:
+        form = ScoreForm()
     context = {
-        'user_scores': user_scores
+        'user_scores': user_scores,
+        'form': form
     }
-    return render(
-        request,
-        "reactions/profile.html",
-        context,
-    )
+    return render(request, "reactions/profile.html", context)
 
 @login_required
 def delete_score(request, score_id):
