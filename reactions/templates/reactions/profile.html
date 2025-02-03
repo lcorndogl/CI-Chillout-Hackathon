@@ -9,6 +9,7 @@
             <tr>
                 <th>Score (ms)</th>
                 <th>Date</th>
+                <th>Hidden</th>
                 <th>Action</th>
             </tr>
         </thead>
@@ -17,6 +18,13 @@
             <tr>
                 <td>{{ score.score }}</td>
                 <td>{{ score.created_on|date:"Y-m-d H:i" }}</td>
+                <td>
+                    <form method="post" action="{% url 'profile' %}">
+                        {% csrf_token %}
+                        <input type="hidden" name="score_id" value="{{ score.id }}">
+                        <input type="checkbox" name="hidden" {% if score.hidden %}checked{% endif %} onchange="this.form.submit()">
+                    </form>
+                </td>
                 <td>
                     <form method="post" action="{% url 'delete_score' score.id %}">
                         {% csrf_token %}
