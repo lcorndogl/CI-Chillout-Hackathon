@@ -118,6 +118,10 @@ USER
 
 Suspectedly due to the DOM manipulations the time that is recorded is ~100~200ms higher than what it actually is.
 
+### Clicking too soon causes weirdness
+
+If you click too soon it seems to cause some sort of issues with the timer not stopping correctly, causing the game to become glitchy in subsequent attempts.
+
 ### Troubleshoot
 
 After adding the profiles section to the project, updating the navbar to reflect this was a bit of a problem, this turned out to be a combination of using CoPilot and not using the correct base.html file, as Copilot was suggesting to edit the base.html file that was located within the django allauth folder, rather than the one that was directly in the templates directory.
