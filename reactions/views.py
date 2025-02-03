@@ -1,9 +1,14 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 # , get_object_or_404, reverse, redirect
 # from django.views import generic
 from django.contrib import messages
 # from django.http import HttpResponseRedirect
 from .forms import ScoresForm
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+from django.contrib.auth.decorators import login_required
+from .models import Score
+import json
 
 # Create your views here.
 
@@ -45,9 +50,51 @@ def reaction(request):
 
 def leaderboard(request):
     """
-    Displays the home page
+    Displays the leaderboard page
     """
+    top_scores = Score.objects.order_by('score')[:25]
+    context = {
+        'top_scores': top_scores
+    }
     return render(
         request,
         "reactions/leaderboard.html",
+        context,
     )
+
+@csrf_exempt
+@login_required
+def save_reaction_time(request):
+    if request.method == 'POST':
+        data = json.loads(request.body)
+        score = data.get('score')
+        if score is not None:
+            Score.objects.create(user=request.user, score=score)
+            return JsonResponse({'status': 'success'})
+    return JsonResponse({'status': 'error'}, status=400)
+
+@login_required
+def profile(request):
+    """
+    Displays the profile page with the user's scores
+    """
+    user_scores = Score.objects.filter(user=request.user).order_by('created_on')
+    context = {
+        'user_scores': user_scores
+    }
+    return render(
+        request,
+        "reactions/profile.html",
+        context,
+    )
+
+@login_required
+def delete_score(request, score_id):
+    """
+    Deletes a score from the user's profile
+    """
+    score = Score.objects.get(id=score_id, user=request.user)
+    if score:
+        score.delete()
+        return redirect('profile')
+    return redirect('profile')
