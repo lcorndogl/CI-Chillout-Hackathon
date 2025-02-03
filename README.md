@@ -1,6 +1,27 @@
 # Reaction Speed Test
 
 ## Contents
+- [Introduction](#introduction)
+- [User Experience](#user-experience)
+  - [Stories](#stories)
+- [Project Setup](#project-setup)
+- [AI Influence](#ai-influence)
+- [Entity Relationship Diagram](#entity-relationship-diagram)
+- [Bugs](#bugs)
+  - [Known Bugs](#known-bugs)
+  - [Fixed Bugs](#fixed-bugs)
+- [Future Features](#future-features)
+  - [Feature 1](#feature-1)
+  - [Feature 2](#feature-2)
+- [Deployment](#deployment)
+- [Technologies Used](#technologies-used)
+- [Testing](#testing)
+  - [Creating the Tests](#creating-the-tests)
+  - [Running the Tests](#running-the-tests)
+- [Credits](#credits)
+  - [Code Institute](#code-institute)
+- [Video Game Tracker Project](#video-game-tracker-project)
+  - [CSS](#css)
 
 ## Introduction
 
