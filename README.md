@@ -8,6 +8,16 @@
 
 Suspectedly due to the DOM manipulations the time that is recorded is ~100~200ms higher than what it actually is.
 
+## Future Features
+
+### Update Game JavaScript
+
+In an attempt to fix the time recorded being slower than what it is in reality, I plan to adjust the game to add additional time checks before and after DOM manipulations, as well as including the event listener within the same function itself rather than in one of the functions that it goes through - to try and reduce the amount of code that is run through before the time of the user click is created.
+
+### Profile Pages
+
+In future I would like to create a profile page for each user, showing the number of tests they have completed, their best result, worst result as well as an average.
+
 ## Deployment
 
 1) Add the required files to the git repository with the command `git add .`
