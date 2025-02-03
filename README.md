@@ -84,6 +84,7 @@ Due to time constraints I have relied more on copilot than I usually would, whil
 
 ## Entity Relationship Diagram
 
+```plaintext
 USER
 +-----------------+
 | id (PK)         |
@@ -109,6 +110,7 @@ USER
 | hidden          |
 | user_id (FK)    |
 +-----------------+
+```
 
 ## Bugs
 
